@@ -1,0 +1,60 @@
+2014/07/24 22:09:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "hellow".' in /home/myapp/framework/web/CController.php:483
+Stack trace:
+#0 /home/myapp/framework/web/CController.php(270): CController->missingAction('hellow')
+#1 /home/myapp/framework/web/CWebApplication.php(282): CController->run('hellow')
+#2 /home/myapp/framework/web/CWebApplication.php(141): CWebApplication->runController('messahe/hellow')
+#3 /home/myapp/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/myapp/queqiao/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/queqiao/index.php?r=messahe/hellow
+---
+2014/07/24 22:11:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "hellowWorls".' in /home/myapp/framework/web/CController.php:483
+Stack trace:
+#0 /home/myapp/framework/web/CController.php(270): CController->missingAction('hellowWorls')
+#1 /home/myapp/framework/web/CWebApplication.php(282): CController->run('hellowWorls')
+#2 /home/myapp/framework/web/CWebApplication.php(141): CWebApplication->runController('message/hellowW...')
+#3 /home/myapp/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/myapp/queqiao/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/queqiao/index.php?r=message/hellowWorls
+---
+2014/07/24 23:00:41 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /home/myapp/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /home/myapp/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /home/myapp/framework/web/CWebApplication.php(282): CController->run('')
+#2 /home/myapp/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /home/myapp/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/myapp/queqiao/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/queqiao/index.php?r=gii
+---
+2014/07/24 23:00:58 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /home/myapp/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /home/myapp/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /home/myapp/framework/web/CWebApplication.php(282): CController->run('')
+#2 /home/myapp/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /home/myapp/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/myapp/queqiao/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/queqiao/index.php?r=gii
+---
+2014/07/24 23:01:23 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /home/myapp/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /home/myapp/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /home/myapp/framework/web/CWebApplication.php(282): CController->run('')
+#2 /home/myapp/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /home/myapp/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/myapp/queqiao/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/queqiao/index.php?r=gii
+---
+2014/07/24 23:02:00 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /home/myapp/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /home/myapp/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /home/myapp/framework/web/CWebApplication.php(282): CController->run('')
+#2 /home/myapp/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /home/myapp/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/myapp/queqiao/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/queqiao/index.php?r=gii
+---
