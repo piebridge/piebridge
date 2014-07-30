@@ -7,7 +7,8 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
+	'name'=>'My Web hh Application',
+	'runtimePath'=>RUNTIME_PATH,
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -16,6 +17,10 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+
+		//使用第三方库
+		'application.extensions.*',
+		'application.extensions.smarty.sysplugins.*',
 	),
 
 	'modules'=>array(
@@ -35,6 +40,9 @@ return array(
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
+		),
+		'smarty'=>array(
+				'class'=>'application.extensions.CSmarty',
 		),
 		// uncomment the following to enable URLs in path-format
 		/*

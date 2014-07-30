@@ -1,0 +1,348 @@
+/*
+* xiaoqueqiao V1.0
+* Copyright 2014, Allen
+* www.xiaoqueqiao.com
+* 7/22/2014
+*/
+
+
+/* 页面布局
+==================================================
+	#基础设置
+*/
+
+
+/* 基础设置
+================================================== */
+html, body, div, span, p, a, img, audio, video {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline; 
+}
+/* 主体样式
+-------------------------------------*/	
+body {
+position:relative;
+width: 100%;
+height:100%;
+font-family: "Microsoft YaHei",微软雅黑,宋体,Arial,Helvetica,sans-serif;
+font-size:14px;
+line-height: 1.6em;
+color:#333;
+}
+.button{
+color: #FFF;
+background:transparent;
+border: 2px solid #FFF;
+box-shadow: none;
+font-family: "Microsoft YaHei",微软雅黑,宋体,Arial,Helvetica,sans-serif;
+transition-duration: 0.01s;
+}
+.button:hover {
+color:#FFF;
+background-color:#F69;
+border: 2px solid #F69;
+cursor: pointer;
+}
+.button:active {
+color:#666;
+text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3);
+border: 2px solid #F69;
+cursor: pointer;
+}
+a{
+text-decoration:none;
+}
+img{
+border:0 none;
+}
+.container{
+position:relative;
+margin:auto;
+max-width:1020px;
+}
+/* 导航条
+-------------------------------------*/	
+.navbar{
+position:relative;
+height:60px;
+background-color:#fff;
+box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+overflow:hidden;
+}
+.logo{
+float:left;
+color:#FF6699;
+display:block;
+margin-left:20px;
+font-size:32px;
+line-height:60px;
+text-align:center;
+}
+/* 焦点大图
+-------------------------------------*/	
+.hero{
+background: url(../images/hero.jpg) #F3A3A6;
+height:560px;
+color:#fff;
+}
+.title{
+font-size:38px;
+line-height:50px;
+padding:150px 0 0;
+text-align:center;
+text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+color:#FFF;
+}
+.subtitle{
+font-size:20px;
+line-height:30px;
+padding:20px 0;
+text-align:center;
+text-shadow: 0px 3px 1px rgba(0, 0, 0, 0.3);
+color:#FFF;
+}
+.tip{
+margin-top:40px;
+font-size:14px;
+text-align:center;
+color:#FFFFFF;
+}
+.send-form{
+margin:0 auto;
+padding:10px 0;
+overflow:hidden;
+}
+/*输入框*/
+.form-input{
+display:block;
+position:relative;
+width:460px;
+height: 40px;
+margin:0 auto;
+font-size: 16px;
+line-height: 24px;		
+color: #AAA;
+border:1px solid #CCC;
+box-shadow:0 0 1px #CCC;
+background:#FFFFFF;
+}
+/*输入框标签*/
+.form-input label {
+position:absolute;
+left:16px;
+top:8px;
+z-index:1;
+}
+/*输入框框体*/
+.form-input input {
+position:absolute;
+left:16px;
+top:8px;
+width: 428px;
+height:24px;
+font-size:16px;
+line-height: 24px;		
+outline: medium none;
+border: medium none;
+background:transparent url(../images/empty.png) repeat scroll 0 0 ;	
+z-index:2;
+}
+.send{
+display:block;
+width:160px;
+margin:15px auto;
+padding:3px 0;
+font-size:18px;
+}
+/* 理念简介
+-------------------------------------*/	
+.summary{
+position:relative;
+overflow:hidden;
+}
+.title1{
+font-size:32px;
+line-height:50px;
+padding:50px 0 30px;
+text-align:center;
+color:#333;
+}
+.row-left{
+position:relative;
+float:left;
+width:430px;
+margin:50px 0 0;
+padding:0 40px 0 20px;
+}
+.title2{
+padding:20px 0 20px;
+font-size:24px;
+}
+.text{
+padding-bottom:12px;
+font-size:16px;
+color:#666666;
+}
+.row-right{
+position:relative;
+float:left;
+width:490px;
+left:0;
+}
+/* 优势介绍
+-------------------------------------*/	
+.intro{
+position:relative;
+background-color:#FAFAFA;
+overflow:hidden;
+}
+.intro-title{
+font-size:32px;
+line-height:50px;
+padding:50px 0 10px;
+text-align:center;
+color:#333;
+}
+.intro-subtitle{
+font-size:20px;
+line-height:20px;
+padding-bottom:20px;
+text-align:center;
+color:#333;
+}
+.columns{
+position:relative;
+float:left;
+width:300px;
+margin:40px 0 60px;
+padding:0 20px;
+}
+.columes-circles{
+background-color:#F69;
+border-radius:200%;
+color:#F4F4F4;
+font-size:24px;
+line-height:24px;
+width:24px;
+height:24px;
+margin:0px auto;
+padding:20px;
+text-align:center;
+}
+.columns-title{
+font-size:24px;
+margin:30px 0 0 ;
+padding:20px 0;
+color:#333;
+}
+.columns-text{
+font-size:16px;
+line-height:1.6em;
+padding:10px 0;
+color:#666666;
+}
+/* 团队介绍
+-------------------------------------*/	
+.team{
+position:relative;
+overflow:hidden;
+}
+.photo{
+float:left;
+width:64px;
+height:64px;
+}
+.quote{
+display:block;
+float:left;
+width:216px;
+padding-left:20px;
+font-size:14px;
+line-height:1.6em;
+}
+.name{
+padding:20px 0 10px;
+font-size:18px;
+line-height:1.6em;
+border-bottom:1px dashed #999;
+}
+.jd{
+padding:2px 0 0 ;
+font-size:14px;
+line-height:1.6em;
+}
+/* 关注我们
+-------------------------------------*/	
+.signup{
+position:relative;
+overflow:hidden;
+background: url(../images/a.jpg) center center;
+}
+.signup .tip{
+color:#333 !important;
+}
+.number{
+font-size:18px;
+text-align:center;
+color:#515151;
+}
+.number span{
+padding:0 8px;
+}
+.count{
+font-size:36px;
+line-height:40px;
+color:#333;
+}
+/* 页尾
+-------------------------------------*/	
+.footer{
+position:relative;
+overflow:hidden;
+background-color:#EFEFEF;
+}
+.contact{
+position:relative;
+overflow:hidden;
+margin:50px auto 0px;
+font-size:20px;
+text-align:center;
+}
+.contact-list{
+position:relative;
+margin:0 auto;
+padding:15px 0 0px;
+line-height:1.6em;
+text-align:center;
+}
+.contact-list span{
+display:inline-table;
+position:relative;
+padding:0 20px;
+}
+.weibo span{
+margin-left:20px;
+padding:0;
+text-align:center;
+vertical-align:middle;
+}
+.qqgroup a{
+position:relative;
+margin-left:20px;
+padding:0;
+}
+.qqgroup img{
+text-align:center;
+vertical-align:middle;
+}
+.icp{
+display:block;
+padding:25px 0 50px;
+font-size:14px;
+line-height:20px;
+text-align:center;
+}
