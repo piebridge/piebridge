@@ -28,7 +28,7 @@ class Controller extends CController
 	public function use_view($viewpath='')
 	{
 		if(empty($view_path)){
-			$viewpath =  $this->module->basePath.DS.'views'.DS.$this->id.DS.$this->action->id.'.tpl';
+			$viewpath = $this->getViewPath().DS.$this->action->id.'.tpl';
 		}
 		$this->_viewpath = $viewpath;
 	}
