@@ -9,6 +9,7 @@ return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'My Web hh Application',
 	'runtimePath'=>RUNTIME_PATH,
+	'defaultController'=>'pop',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
