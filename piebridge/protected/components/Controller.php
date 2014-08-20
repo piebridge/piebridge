@@ -6,14 +6,14 @@
 error_reporting(E_ALL);
 class Controller extends CController
 {
-
 	private $_viewFile = '';
 
 	/**
 	 * @var string the default layout for the controller view. Defaults to '//layouts/column1',
 	 * meaning using a single column layout. See 'protected/views/layouts/column1.php'.
 	 */
-	public $layout='/layouts/column1';
+
+	public $layout='/common/';
 	/**
 	 * @var array context menu items. This property will be assigned to {@link CMenu::items}.
 	 */
@@ -25,6 +25,24 @@ class Controller extends CController
 	 */
 	public $breadcrumbs=array();
 
+	private static $nologin = array(
+			'site' => array('login', 'index', 'upload'),
+			'specialTopic' => array('preview'),
+	);
+
+	/**
+	 * (non-PHPdoc)
+	 * @see CController::init()
+	 */
+	public function init()
+	{
+		$layout_path = Yii::app()->getLayoutPath();
+
+		$this->assign('commonTmpPath', $layout_path.DS);
+
+		$httpHost = $_SERVER['HTTP_HOST'];
+		$this->assign('HTTP_HOST', $httpHost);
+	}
 
 	public function use_view($viewName='')
 	{
@@ -51,32 +69,13 @@ class Controller extends CController
 		return Yii::app()->smarty->fetch($view);
 	}
 
-
 	/**
 	 * Smarty display()方法
 	 *
 	 */
 	public function display()
 	{
-		if($this->layout){
-			$view_html = Yii::app()->smarty->fetch($this->_viewFile);
-
-			Yii::app()->smarty->assign('content', $view_html);
-			$layoutFile=$this->getLayoutFile($this->layout);
-			$this->renderLayout($layoutFile);
-		}
-
-		Yii::app()->smarty->display(!empty($layoutFile) ? $layoutFile : $this->_viewFile);
-	}
-
-	public function renderLayout($layoutFile)
-	{
-		$layout = str_replace('html', 'php', $layoutFile);
-
-		include_once $layout;
-		$layoutname = basename($layout, '.php');
-		$layout = new $layoutname();
-		$layout->renderLayout();
+		Yii::app()->smarty->display($this->_viewFile);
 	}
 
 	public function resolveViewFile($viewName,$viewPath,$basePath,$moduleViewPath=null)
@@ -109,6 +108,45 @@ class Controller extends CController
 		return Yii::app()->findLocalizedFile($viewFile.'.html');
 		else
 			return false;
+	}
+
+	/**
+	 *
+	 * @see CController::beforeAction()
+	 */
+	protected function beforeAction($action)
+	{
+
+// 		if($error=Yii::app()->errorHandler->error)
+// 		{
+// 			if(Yii::app()->request->isAjaxRequest)
+// 				echo $error['message'];
+// 			else
+// 				$this->render('error', $error);
+// 			exit();
+// 		}
+// 		if ($this->noLoginActions($action)) return true;
+
+// 		$user = new UserAu();
+// 		$islogin = $user->isLogin();
+// 		if(!$islogin) {
+// 			//TODO 没有登陆，跳转到登陆页
+// // 			$this->redirect($user->getLoginUrl());
+// 		}
+
+// 		//获取用户信息,并获取权限
+// // 		$userInfo = $user->isCp();
+
+// // 		if(!$userInfo) echo 'no right'; return false;
+
+		return true;
+	}
+	private function noLoginActions($action)
+	{
+		$controller = $this->getId();
+		$action = strtolower($this->getAction()->getId());
+
+		return isset(self::$nologin[$controller]) && in_array($action, self::$nologin[$controller]);
 	}
 
 
