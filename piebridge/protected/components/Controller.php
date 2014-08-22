@@ -42,6 +42,9 @@ class Controller extends CController
 
 		$httpHost = $_SERVER['HTTP_HOST'];
 		$this->assign('HTTP_HOST', $httpHost);
+		$login = Yii::app()->user->isGuest;
+		$this->assign('login', $login);
+		$this->assign('username', Yii::app()->user->name);
 	}
 
 	public function use_view($viewName='')

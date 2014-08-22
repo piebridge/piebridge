@@ -1,6 +1,6 @@
 <?php
 
-class SiteController extends Controller
+class RegisterController extends Controller
 {
 	/**
 	 * Declares class-based actions.
@@ -20,7 +20,6 @@ class SiteController extends Controller
 			),
 		);
 	}
-
 	/**
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.
@@ -32,9 +31,6 @@ class SiteController extends Controller
 
 		$this->use_view();
 
-		$login = Yii::app()->user->isGuest;
-		$this->assign('login', $login);
-		$this->assign('username', Yii::app()->user->name);
 		$this->display();
 	}
 
@@ -75,6 +71,8 @@ class SiteController extends Controller
 				$this->refresh();
 			}
 		}
+		$this->use_view();
+		$this->display();
 		$this->render('contact',array('model'=>$model));
 	}
 
@@ -96,10 +94,12 @@ class SiteController extends Controller
 		if(isset($_POST['LoginForm']))
 		{
 			$model->attributes=$_POST['LoginForm'];
+
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login())
 				$this->redirect(Yii::app()->user->returnUrl);
 		}
+
 		// display the login form
 		$this->use_view();
 		$this->display();

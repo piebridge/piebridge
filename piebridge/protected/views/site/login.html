@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>小鹊桥_免费靠谱的交友网站，发现、认识让你心动的人</title>
+<meta content="小鹊桥是一个免费的在线交友网站。完全免费，真实可靠，双向选择，帮你发现，认识让你心动的人，让交友更方便、靠谱。" name="description" >
+<meta name="keywords" content="小鹊桥，鹊桥，免费交友，交友网站" >
+<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+<script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="../js/my_jquery_functions.js"></script>
+</head>
+<body>
+<div id="header">
+  <div class="container">
+    <div id="logo">
+      <a href="login.html"><img src="../images/logo.png" alt="小鹊桥" title="小鹊桥" /></a>
+    </div>
+    <div class="slogan">一个免费靠谱的交友网站</div>
+  </div>
+</div>
+<div id="page">
+  <div class="login_mainBox">
+    <div class="login_content">
+      <div class="login_slogan">
+        <h1>发现、认识让你心动的人</h1>
+        <p>帮你遇见心动的人，并与他们联系，最终找到自己的幸福，这就是小鹊桥。</p>
+        <a class="login_reg" href="register.html">立即注册</a> </div>
+
+
+<!-- form start -->
+ <form id="login-form" action="/index.php?r=site/login" method="post" style = display:none>
+	<p class="note">Fields with <span class="required">*</span> are required.</p>
+
+	<div class="row">
+		<label for="LoginForm_username" class="required">Username <span class="required">*</span></label>		<input name="LoginForm[username]" id="LoginForm_username" type="text" />		<div class="errorMessage" id="LoginForm_username_em_" style="display:none"></div>	</div>
+
+	<div class="row">
+		<label for="LoginForm_password" class="required">Password <span class="required">*</span></label>		<input name="LoginForm[password]" id="LoginForm_password" type="password" />		<div class="errorMessage" id="LoginForm_password_em_" style="display:none"></div>		<p class="hint">
+			Hint: You may login with <tt>demo/demo</tt>.
+		</p>
+	</div>
+
+	<div class="row rememberMe">
+		<input id="ytLoginForm_rememberMe" type="hidden" value="0" name="LoginForm[rememberMe]" /><input name="LoginForm[rememberMe]" id="LoginForm_rememberMe" value="1" type="checkbox" />		<label for="LoginForm_rememberMe">Remember me next time</label>		<div class="errorMessage" id="LoginForm_rememberMe_em_" style="display:none"></div>	</div>
+
+	<div class="row submit">
+		<input type="submit" name="yt0" value="Login" />	</div>
+
+</form>
+<!-- form -->
+      <div  class="login_box">
+ 		<form id="login-form" action="/index.php?r=site/login" method="post">
+	  <div id="error_tips"><span>账号或密码错误，请重新输入</span></div>
+        <ul>
+          <li>
+            <div class="form_input">
+              <label class="email">邮箱</label>
+              <input class="email" type="text" maxlength="50" disableautocomplete="" autocomplete="off" tabindex="1" value="" name="LoginForm[username]">
+            </div>
+          </li>
+          <li>
+            <div class="form_input">
+              <label class="password">密码</label>
+              <input class="password" type="password" maxlength="50"  tabindex="2" name="LoginForm[password]"  style="font-size:16px;"/>
+            </div>
+          </li>
+          <li class="login_button">
+            <button class="login button" type="submit"> <span>登 陆</span> </button>
+          </li>
+          <li class="login_extend"><span class="login_remember">
+            <input type="checkbox">记住密码</span> <a class="login_forget" href="#">忘记密码？</a> </li>
+        </ul>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="footer">
+  <div class="service"><a target="_blank" href="about.html">关于小鹊桥</a> · <a target="_blank" href="contactus.html">联系我们</a> · <a target="_blank" href="protocol.html">使用条款</a> · <a href="#">意见反馈</a></div>
+  <div class="icp"><span> © 2014 xiaoqueqiao.com, all rights reserved.</span> <span>京ICP备14035193号<a href="http://www.miitbeian.gov.cn/"></a></span></div>
+</div>
+</body>
+</html>

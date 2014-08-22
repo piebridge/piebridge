@@ -1,1 +1,31 @@
-<img src = "images/common/head.jpg"/>
+<div id="header">
+  <div class="container">
+    <div id="logo">
+      <a href="search.html"><img src="../images/logo.png" alt="小鹊桥" title="小鹊桥" /></a>
+    </div>
+    <div id="nav">
+      <ul>
+        <li id="nav_search" class="current"><span class="x_icon icon_search"></span><a href="search.html">缘分搜索 </a> </li>
+        <li id="nav_likelist" class=""><span class="x_icon icon_likelist"></span><a href="likelist.html">心动列表 </a> </li>
+        <li id="nav_visitors" class=""><span class="x_icon icon_visitors"></span><a href="visitors.html">最近访客 </a> </li>
+        <li id="nav_inspect" class=""><span class="x_icon icon_inspect"></span><a href="inspect.html">审核照片 </a> </li>
+      </ul>
+    </div>
+    <div class="user_header">
+    <%if $login%>
+    <span>
+    <li><a href="/index.php?r=site/login">Login (<%$username%>)</a></li>
+	<li><a href="/index.php?r=register/index">注册</a></li>
+
+	  </span>
+	  <%else%>
+     <span>
+	     <a href="profile.html"><%$username%></a>
+	     <a href="mailbox.html">消息</a>
+	     <a href="setting.html">设置</a>
+	     <a href="/index.php?r=site/logout">退出</a>
+	  </span>
+	  <%/if%>
+     </div>
+  </div>
+</div>
