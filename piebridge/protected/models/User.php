@@ -32,7 +32,7 @@ class User extends CActiveRecord
 			array('createtime', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, username, password, createtime, email', 'safe', 'on'=>'search'),
+			array('id, username, password, createtime, email, birthday, address, height, sex', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -58,6 +58,10 @@ class User extends CActiveRecord
 			'password' => 'Password',
 			'createtime' => 'Createtime',
 			'email' => 'Email',
+			'birthday' => 'Birthday',
+			'address' => 'Address',
+			'height' => 'Height',
+			'sex' => 'Sex'
 		);
 	}
 
@@ -84,6 +88,10 @@ class User extends CActiveRecord
 		$criteria->compare('password',$this->password,true);
 		$criteria->compare('createtime',$this->createtime,true);
 		$criteria->compare('email',$this->email,true);
+		$criteria->compare('birthday',$this->birthday,true);
+		$criteria->compare('address',$this->address,true);
+		$criteria->compare('height',$this->height,true);
+		$criteria->compare('sex',$this->sex,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

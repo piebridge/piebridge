@@ -8,8 +8,8 @@
 <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
 <link rel="stylesheet" type="text/css" href="../css/style.css" />
 <script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="../js/jquery.tabify.js"></script>
-<script type="text/javascript" src="../js/my_jquery_functions.js"></script>
+<script type="text/javascript" src="../js/jquery.validate.js"></script>
+<script type="text/javascript" src="../js/register.js"></script>
 </head>
 <body>
 
@@ -22,12 +22,12 @@
         <h1 id="title">注册</h1>
       </div>
       <div id="register" class="content">
-        <form class="reg_form" method="post">
+        <form class="reg_form" method="post" action="/index.php?r=register/save">
           <h2>马上加入，开启缘分之旅</h2>
           <div class="form_item">
             <label class="item_name">性别：</label>
             <label class="sex" for="sexm">
-            <input id="sexm" type="radio" value="男" name="sex">
+            <input id="sexm" type="radio" value="男" name="sex" checked="checked">
             男 </label>
             <label class="sex" for="sexf">
             <input id="sexf" type="radio" value="女" name="sex">
@@ -35,8 +35,8 @@
           </div>
           <div class="form_item">
             <label class="item_name">生日：</label>
-            <select class="year item_select">
-              <option>请选择</option>
+            <select class="year item_select" id="year" name="year">
+              <option value="0">请选择</option>
               <option>1996</option>
               <option>1995</option>
               <option>1994</option>
@@ -55,8 +55,8 @@
               <option>1981</option>
               <option>1980</option>
             </select>
-            <select class="month item_select">
-              <option>请选择</option>
+            <select class="month item_select" id="month" name="month">
+              <option value="0">请选择</option>
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -70,8 +70,8 @@
               <option>11</option>
               <option>12</option>
             </select>
-            <select class="day item_select">
-              <option>请选择</option>
+            <select class="day item_select" id="day" name="day">
+              <option value="0">请选择</option>
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -113,8 +113,8 @@
           </div>
           <div class="form_item">
             <label class="item_name">身高：</label>
-            <select class="height item_select">
-              <option>请选择</option>
+            <select class="height item_select" id="height" name="height">
+              <option value="0">请选择</option>
               <option>199cm</option>
               <option>198cm</option>
               <option>197cm</option>
@@ -169,8 +169,8 @@
           </div>
           <div class="form_item">
             <label class="item_name">现居地：</label>
-            <select class="province item_select">
-              <option>请选择</option>
+            <select class="province item_select" id="address" name="address">
+              <option value="0">请选择</option>
               <option>北京</option>
               <option>上海</option>
               <option>天津</option>
@@ -208,15 +208,15 @@
             </select>
           </div>
           <div class="form_item">
-            <label class="item_name">昵称：</label>
+            <label class="item_name" autocomplete="off">昵称：</label>
             <input id="name" class="item_input" type="text" maxlength="15" name="name"/>
             <span style="display:inline">中、英文均可，最多14个英文或7个汉字</span> </div>
           <div class="form_item">
-            <label class="item_name">邮箱：</label>
+            <label class="item_name" autocomplete="off">邮箱：</label>
             <input id="email" class="item_input" type="text" maxlength="60" name="email"/>
             <span style="display:inline">用来登录Find，接收到激活邮件才能完成注册</span> </div>
           <div class="form_item">
-            <label class="item_name">密码：</label>
+            <label class="item_name" autocomplete="off">密码：</label>
             <input id="password" class="item_input" type="password" maxlength="20" name="password"/>
             <span style="display:inline">可包含字母和数字，至少6个字符，区分大小写</span> </div>
           <div class="form_item">
@@ -226,7 +226,7 @@
               我已经认真阅读并同意Find的《 <a href="protocol.html" target="_blank">使用条款</a> 》。 </label>
             </p>
           </div>
-          <div class="form_item"> <a class="reg_button button" href="profile.html">立即注册</a> </div>
+          <div class="form_item"> <button class="reg_button button" type="submit">立即注册</button> </div>
         </form>
       </div>
     </div>
