@@ -4,11 +4,21 @@
  * This is the model class for table "user".
  *
  * The followings are the available columns in table 'user':
- * @property integer $id
- * @property string $username
+ * @property integer $user_id
+ * @property string $user_name
  * @property string $password
- * @property string $createtime
  * @property string $email
+ * @property string $sex
+ * @property string $birth
+ * @property integer $age
+ * @property integer $constellation
+ * @property string $location
+ * @property integer $info_percent
+ * @property integer $head_pic
+ * @property integer $limit
+ * @property string $vip_daedline
+ * @property integer $is_vip
+ * @property string $last_login_time
  */
 class User extends CActiveRecord
 {
@@ -28,11 +38,17 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, password, email', 'length', 'max'=>255),
-			array('createtime', 'safe'),
+			array('user_id, user_name, password', 'required'),
+			array('user_id, age, constellation, info_percent, head_pic, limit, is_vip', 'numerical', 'integerOnly'=>true),
+			array('user_name', 'length', 'max'=>16),
+			array('password', 'length', 'max'=>32),
+			array('email', 'length', 'max'=>255),
+			array('sex', 'length', 'max'=>1),
+			array('location', 'length', 'max'=>100),
+			array('birth, vip_daedline, last_login_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, username, password, createtime, email, birthday, address, height, sex', 'safe', 'on'=>'search'),
+			array('user_id, user_name, password, email, sex, birth, age, constellation, location, info_percent, head_pic, limit, vip_daedline, is_vip, last_login_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -53,15 +69,21 @@ class User extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'username' => 'Username',
+			'user_id' => 'User',
+			'user_name' => 'User Name',
 			'password' => 'Password',
-			'createtime' => 'Createtime',
 			'email' => 'Email',
-			'birthday' => 'Birthday',
-			'address' => 'Address',
-			'height' => 'Height',
-			'sex' => 'Sex'
+			'sex' => 'Sex',
+			'birth' => 'Birth',
+			'age' => 'Age',
+			'constellation' => 'Constellation',
+			'location' => 'Location',
+			'info_percent' => 'Info Percent',
+			'head_pic' => 'Head Pic',
+			'limit' => 'Limit',
+			'vip_daedline' => 'Vip Daedline',
+			'is_vip' => 'Is Vip',
+			'last_login_time' => 'Last Login Time',
 		);
 	}
 
@@ -83,15 +105,21 @@ class User extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('username',$this->username,true);
+		$criteria->compare('user_id',$this->user_id);
+		$criteria->compare('user_name',$this->user_name,true);
 		$criteria->compare('password',$this->password,true);
-		$criteria->compare('createtime',$this->createtime,true);
 		$criteria->compare('email',$this->email,true);
-		$criteria->compare('birthday',$this->birthday,true);
-		$criteria->compare('address',$this->address,true);
-		$criteria->compare('height',$this->height,true);
 		$criteria->compare('sex',$this->sex,true);
+		$criteria->compare('birth',$this->birth,true);
+		$criteria->compare('age',$this->age);
+		$criteria->compare('constellation',$this->constellation);
+		$criteria->compare('location',$this->location,true);
+		$criteria->compare('info_percent',$this->info_percent);
+		$criteria->compare('head_pic',$this->head_pic);
+		$criteria->compare('limit',$this->limit);
+		$criteria->compare('vip_daedline',$this->vip_daedline,true);
+		$criteria->compare('is_vip',$this->is_vip);
+		$criteria->compare('last_login_time',$this->last_login_time,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

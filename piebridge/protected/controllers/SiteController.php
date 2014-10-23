@@ -84,7 +84,7 @@ class SiteController extends Controller
 	public function actionLogin()
 	{
 		$model=new LoginForm;
-
+		$this->assign('error_tips', '');
 		// if it is ajax validation request
 		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
 		{
@@ -97,8 +97,11 @@ class SiteController extends Controller
 		{
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
-			if($model->validate() && $model->login())
+			if($model->validate() && $model->login()){
 				$this->redirect(Yii::app()->user->returnUrl);
+			}else {
+				$this->assign('error_tips', $model->errors['login'][0]);
+			}
 		}
 		// display the login form
 		$this->use_view();

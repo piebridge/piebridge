@@ -42,5 +42,7 @@ class UserAu
 		$respAccountInfo = $account->get_login_info_by_sso_token($sso_token);
 		return $respAccountInfo;
 	}
+
+
 }
 
