@@ -9,7 +9,7 @@
  * @property string $password
  * @property string $email
  * @property string $sex
- * @property string $birth
+ * @property string $birthday
  * @property integer $age
  * @property integer $constellation
  * @property string $location
@@ -19,6 +19,7 @@
  * @property string $vip_daedline
  * @property integer $is_vip
  * @property string $last_login_time
+ * @property string $create_time
  */
 class User extends CActiveRecord
 {
@@ -45,10 +46,10 @@ class User extends CActiveRecord
 			array('email', 'length', 'max'=>255),
 			array('sex', 'length', 'max'=>1),
 			array('location', 'length', 'max'=>100),
-			array('birth, vip_daedline, last_login_time', 'safe'),
+			array('birthday, vip_daedline, last_login_time, create_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('user_id, user_name, password, email, sex, birth, age, constellation, location, info_percent, head_pic, limit, vip_daedline, is_vip, last_login_time', 'safe', 'on'=>'search'),
+			array('user_id, user_name, password, email, sex, birthday, age, constellation, location, info_percent, head_pic, limit, vip_daedline, is_vip, last_login_time, create_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -74,7 +75,7 @@ class User extends CActiveRecord
 			'password' => 'Password',
 			'email' => 'Email',
 			'sex' => 'Sex',
-			'birth' => 'Birth',
+			'birthday' => 'Birthday',
 			'age' => 'Age',
 			'constellation' => 'Constellation',
 			'location' => 'Location',
@@ -84,6 +85,7 @@ class User extends CActiveRecord
 			'vip_daedline' => 'Vip Daedline',
 			'is_vip' => 'Is Vip',
 			'last_login_time' => 'Last Login Time',
+			'create_time' => 'Create Time',
 		);
 	}
 
@@ -110,7 +112,7 @@ class User extends CActiveRecord
 		$criteria->compare('password',$this->password,true);
 		$criteria->compare('email',$this->email,true);
 		$criteria->compare('sex',$this->sex,true);
-		$criteria->compare('birth',$this->birth,true);
+		$criteria->compare('birthday',$this->birthday,true);
 		$criteria->compare('age',$this->age);
 		$criteria->compare('constellation',$this->constellation);
 		$criteria->compare('location',$this->location,true);
@@ -120,6 +122,7 @@ class User extends CActiveRecord
 		$criteria->compare('vip_daedline',$this->vip_daedline,true);
 		$criteria->compare('is_vip',$this->is_vip);
 		$criteria->compare('last_login_time',$this->last_login_time,true);
+		$criteria->compare('create_time',$this->create_time,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
