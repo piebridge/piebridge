@@ -7,7 +7,6 @@
  * @property integer $user_id
  * @property integer $hometown_id
  * @property integer $nation_id
- * @property integer $height
  * @property integer $body_type_id
  * @property integer $education_id
  * @property integer $school_id
@@ -23,12 +22,12 @@
  * @property string $blood
  *
  * The followings are the available model relations:
- * @property Province $province
  * @property Province $hometown
  * @property Nation $nation
  * @property BodyType $bodyType
  * @property Education $education
  * @property School $school
+ * @property Province $province
  * @property UserPhoto[] $userPhotos
  */
 class UserInfo extends CActiveRecord
@@ -50,14 +49,14 @@ class UserInfo extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('user_id, province_id', 'required'),
-			array('user_id, hometown_id, nation_id, height, body_type_id, education_id, school_id, job_id, monthly_income, province_id', 'numerical', 'integerOnly'=>true),
+			array('user_id, hometown_id, nation_id, body_type_id, education_id, school_id, job_id, monthly_income, province_id', 'numerical', 'integerOnly'=>true),
 			array('self_summary, usually_doing', 'length', 'max'=>200),
 			array('good_at, interest, love_history', 'length', 'max'=>45),
 			array('other', 'length', 'max'=>500),
 			array('blood', 'length', 'max'=>2),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('user_id, hometown_id, nation_id, height, body_type_id, education_id, school_id, job_id, monthly_income, self_summary, usually_doing, good_at, interest, love_history, other, province_id, blood', 'safe', 'on'=>'search'),
+			array('user_id, hometown_id, nation_id, body_type_id, education_id, school_id, job_id, monthly_income, self_summary, usually_doing, good_at, interest, love_history, other, province_id, blood', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -69,12 +68,12 @@ class UserInfo extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'province' => array(self::BELONGS_TO, 'Province', 'province_id'),
 			'hometown' => array(self::BELONGS_TO, 'Province', 'hometown_id'),
 			'nation' => array(self::BELONGS_TO, 'Nation', 'nation_id'),
 			'bodyType' => array(self::BELONGS_TO, 'BodyType', 'body_type_id'),
 			'education' => array(self::BELONGS_TO, 'Education', 'education_id'),
 			'school' => array(self::BELONGS_TO, 'School', 'school_id'),
+			'province' => array(self::BELONGS_TO, 'Province', 'province_id'),
 			'userPhotos' => array(self::HAS_MANY, 'UserPhoto', 'user_id'),
 		);
 	}
@@ -88,7 +87,6 @@ class UserInfo extends CActiveRecord
 			'user_id' => 'User',
 			'hometown_id' => 'Hometown',
 			'nation_id' => 'Nation',
-			'height' => 'Height',
 			'body_type_id' => 'Body Type',
 			'education_id' => 'Education',
 			'school_id' => 'School',
@@ -126,7 +124,6 @@ class UserInfo extends CActiveRecord
 		$criteria->compare('user_id',$this->user_id);
 		$criteria->compare('hometown_id',$this->hometown_id);
 		$criteria->compare('nation_id',$this->nation_id);
-		$criteria->compare('height',$this->height);
 		$criteria->compare('body_type_id',$this->body_type_id);
 		$criteria->compare('education_id',$this->education_id);
 		$criteria->compare('school_id',$this->school_id);

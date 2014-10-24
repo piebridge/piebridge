@@ -20,6 +20,7 @@
  * @property integer $is_vip
  * @property string $last_login_time
  * @property string $create_time
+ * @property integer $height
  */
 class User extends CActiveRecord
 {
@@ -40,7 +41,7 @@ class User extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('user_id, user_name, password', 'required'),
-			array('user_id, age, constellation, info_percent, head_pic, limit, is_vip', 'numerical', 'integerOnly'=>true),
+			array('user_id, age, constellation, info_percent, head_pic, limit, is_vip, height', 'numerical', 'integerOnly'=>true),
 			array('user_name', 'length', 'max'=>16),
 			array('password', 'length', 'max'=>32),
 			array('email', 'length', 'max'=>255),
@@ -49,7 +50,7 @@ class User extends CActiveRecord
 			array('birthday, vip_daedline, last_login_time, create_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('user_id, user_name, password, email, sex, birthday, age, constellation, location, info_percent, head_pic, limit, vip_daedline, is_vip, last_login_time, create_time', 'safe', 'on'=>'search'),
+			array('user_id, user_name, password, email, sex, birthday, age, constellation, location, info_percent, head_pic, limit, vip_daedline, is_vip, last_login_time, create_time, height', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -86,6 +87,7 @@ class User extends CActiveRecord
 			'is_vip' => 'Is Vip',
 			'last_login_time' => 'Last Login Time',
 			'create_time' => 'Create Time',
+			'height' => 'Height',
 		);
 	}
 
@@ -123,6 +125,7 @@ class User extends CActiveRecord
 		$criteria->compare('is_vip',$this->is_vip);
 		$criteria->compare('last_login_time',$this->last_login_time,true);
 		$criteria->compare('create_time',$this->create_time,true);
+		$criteria->compare('height',$this->height);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
