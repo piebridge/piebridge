@@ -46,8 +46,8 @@ class Province extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'userInfos' => array(self::HAS_MANY, 'UserInfo', 'province_id'),
-			'userInfos1' => array(self::HAS_MANY, 'UserInfo', 'hometown_id'),
+			'userInfos' => array(self::HAS_MANY, 'UserInfo', 'hometown_id'),
+			'userInfos1' => array(self::HAS_MANY, 'UserInfo', 'province_id'),
 		);
 	}
 

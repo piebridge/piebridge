@@ -40,8 +40,8 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, user_name, password', 'required'),
-			array('user_id, age, constellation, info_percent, head_pic, limit, is_vip, height', 'numerical', 'integerOnly'=>true),
+			array('user_name, password', 'required'),
+			array('age, constellation, info_percent, head_pic, limit, is_vip, height', 'numerical', 'integerOnly'=>true),
 			array('user_name', 'length', 'max'=>16),
 			array('password', 'length', 'max'=>32),
 			array('email', 'length', 'max'=>255),
@@ -141,26 +141,5 @@ class User extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
-	}
-
-	/**
-	 * Checks if the given password is correct.
-	 * @param string the password to be validated
-	 * @return boolean whether the password is valid
-	 */
-	public function validatePassword($password)
-	{
-		$this->password = $this->hashPassword($this->password);
-		return CPasswordHelper::verifyPassword($password,$this->password);
-	}
-
-	/**
-	 * Generates the password hash.
-	 * @param string password
-	 * @return string hash
-	 */
-	public function hashPassword($password)
-	{
-		return CPasswordHelper::hashPassword($password);
 	}
 }
