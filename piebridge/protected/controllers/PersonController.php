@@ -2,15 +2,23 @@
 
 class PersonController extends Controller
 {
-	public function actionIndex()
+	//http://www.piebridge.com/index.php?r=person/index/&uid=2
+	public function actionIndex($uid = 0)
 	{
 
-
-		//$user_id = Yii::app()->user->id;
-		$user_id = 1;
+		$is_self = 0;
+		$user_id = $uid;
+		if(empty($uid)) {
+			$user_id = Yii::app()->user->id;
+			$is_self = 1;
 		//基本信息
 		$user_base_info = UserAR::model()->findByPk($user_id);
+		if(empty($user_base_info)){
+			echo "no user";
+			exit();
+		}
 
+		$this->assign('is_self', $is_self);
 		$user_base_info->sex = $user_base_info->sex ? '男' : '女';
 
 		$this->assign('user', $user_base_info);
