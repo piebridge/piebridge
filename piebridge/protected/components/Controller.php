@@ -45,6 +45,8 @@ class Controller extends CController
 		$login = Yii::app()->user->isGuest;
 		$this->assign('login', $login);
 		$this->assign('username', Yii::app()->user->name);
+
+		$this->assign('viewpath', $this->viewPath);
 	}
 
 	public function use_view($viewName='')
