@@ -11,6 +11,7 @@ class PersonController extends Controller
 		if(empty($uid)) {
 			$user_id = Yii::app()->user->id;
 			$is_self = 1;
+		}
 		//基本信息
 		$user_base_info = UserAR::model()->findByPk($user_id);
 		if(empty($user_base_info)){
