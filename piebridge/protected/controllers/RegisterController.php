@@ -42,8 +42,8 @@ class RegisterController extends Controller
 		$model->sex = iconv("utf-8","gbk", $_POST['sex']);
 		$model->birthday = $_POST['year']."-".$_POST['month']."-".$_POST['day'];
 		$model->height = $_POST['height'];
-		$model->address = iconv("utf-8","gbk", $_POST['address']);
-		$model->username = iconv("utf-8","gbk", $_POST['name']);
+		$model->location = iconv("utf-8","gbk", $_POST['address']);
+		$model->user_name = iconv("utf-8","gbk", $_POST['name']);
 		$model->insert();
 		$this->redirect(Yii::app()->user->returnUrl);
 	}
