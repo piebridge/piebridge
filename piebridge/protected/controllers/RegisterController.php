@@ -36,9 +36,9 @@ class RegisterController extends Controller
 	
 	public function actionSave()
 	{
-		$model = new User();
+		$model = new UserAR();
 		$model->email = $_POST['email'];
-		$model->password = $_POST['password'];
+		$model->password =  $model ->hashPassword($_POST['password']);
 		$model->sex = iconv("utf-8","gbk", $_POST['sex']);
 		$model->birthday = $_POST['year']."-".$_POST['month']."-".$_POST['day'];
 		$model->height = $_POST['height'];
