@@ -43,7 +43,6 @@ class UserAR extends User
 	 */
 	public function validatePassword($password)
 	{
-		$this->password = $this->hashPassword($this->password);
 		return CPasswordHelper::verifyPassword($password,$this->password);
 	}
 

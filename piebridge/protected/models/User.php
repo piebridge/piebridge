@@ -43,7 +43,7 @@ class User extends CActiveRecord
 			array('user_name, password', 'required'),
 			array('age, constellation, info_percent, head_pic, limit, is_vip, height', 'numerical', 'integerOnly'=>true),
 			array('user_name', 'length', 'max'=>16),
-			array('password', 'length', 'max'=>32),
+			array('password', 'length', 'max'=>300),
 			array('email', 'length', 'max'=>255),
 			array('sex', 'length', 'max'=>1),
 			array('location', 'length', 'max'=>100),
