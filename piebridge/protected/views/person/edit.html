@@ -1,0 +1,5 @@
+  <select>
+  <%foreach from=$ms key=id item=ms_value%>
+  <option value ="<%$ms_value.id%>" <%if $ms_value.id == $user_more->marital_status_id %> selected="selected" <%/if%> ><%$ms_value.name%></option>
+  <%/foreach%>
+</select>

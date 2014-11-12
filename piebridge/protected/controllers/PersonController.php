@@ -34,11 +34,53 @@ class PersonController extends Controller
 
 	}
 
-	public function actionEditbaseinfo()
+	public function actionEditbaseinfo($user_id)
 	{
 
 
 
+	}
+	public function actionEditmoreinfo($user_id)
+	{
+
+		$user_more_info = UserInfoAR::model()->findByPk($user_id);
+		$this->assign('user_more', $user_more_info);
+
+		$maritalStatus = MaritalStatus::model()->findAll(); // 'MaritalStatus', 'marital_status_id'),
+		$hometown      = Hometown::model()->findAll(); // 'Province', 'hometown_id'),
+		$nation        = Nation::model()->findAll(); // 'Nation', 'nation_id'),
+		$bodyType      = BodyType::model()->findAll(); // 'BodyType', 'body_type_id'),
+		$education     = Education::model()->findAll(); // 'Education', 'education_id'),
+		$school        = School::model()->findAll(); // 'School', 'school_id'),
+		$province      = Province::model()->findAll(); // 'Province', 'province_id'),
+		$job           = Job::model()->findAll(); // '$maritalSta,
+
+		$this->assign('maritalStatus', $maritalStatus );
+		$this->assign('hometown'     , $hometown  );
+		$this->assign('nation'       , $nation    );
+		$this->assign('bodyType'     , $bodyType  );
+		$this->assign('education'    , $education );
+		$this->assign('school'       , $school    );
+		$this->assign('province'     , $province  );
+		$this->assign('job'          , $job       );
+
+
+	}
+
+	public function actionSavemoreinfo($user_id)
+	{
+		//接受各个id
+		$user_more_info = UserInfoAR::model()->findByPk($user_id);
+
+		$user_more_info->marital_status_id =  isset($_POST['maritalStatus']) ? $_POST['maritalStatus'] : 0;
+		$user_more_info->hometown_id = isset($_POST['hometown     ']) ?  $_POST['hometown     '] : 0;
+		$user_more_info->nation_id = isset($_POST['nation       ']) ?  $_POST['nation       '] : 0;
+		$user_more_info->bodyType_id = isset($_POST['bodyType     ']) ?  $_POST['bodyType     '] : 0;
+		$user_more_info->education_id = isset($_POST['education    ']) ?  $_POST['education    '] : 0;
+		$user_more_info->school_id = isset($_POST['school       ']) ?  $_POST['school       '] : 0;
+		$user_more_info->province_id = isset($_POST['province     ']) ?  $_POST['province     '] : 0;
+		$user_more_info->job_id = isset($_POST['job          ']) ?  $_POST['job          '] : 0;
+		// $user_more_info->save();
 	}
 
 	// Uncomment the following methods and override them if needed
