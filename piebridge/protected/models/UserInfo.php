@@ -20,14 +20,17 @@
  * @property string $other
  * @property integer $province_id
  * @property string $blood
+ * @property integer $marital_status_id
  *
  * The followings are the available model relations:
+ * @property MaritalStatus $maritalStatus
  * @property Province $hometown
  * @property Nation $nation
  * @property BodyType $bodyType
  * @property Education $education
  * @property School $school
  * @property Province $province
+ * @property Job $job
  * @property UserPhoto[] $userPhotos
  */
 class UserInfo extends CActiveRecord
@@ -48,15 +51,15 @@ class UserInfo extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, province_id', 'required'),
-			array('user_id, hometown_id, nation_id, body_type_id, education_id, school_id, job_id, monthly_income, province_id', 'numerical', 'integerOnly'=>true),
+			array('user_id', 'required'),
+			array('user_id, hometown_id, nation_id, body_type_id, education_id, school_id, job_id, monthly_income, province_id, marital_status_id', 'numerical', 'integerOnly'=>true),
 			array('self_summary, usually_doing', 'length', 'max'=>200),
 			array('good_at, interest, love_history', 'length', 'max'=>45),
 			array('other', 'length', 'max'=>500),
 			array('blood', 'length', 'max'=>2),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('user_id, hometown_id, nation_id, body_type_id, education_id, school_id, job_id, monthly_income, self_summary, usually_doing, good_at, interest, love_history, other, province_id, blood', 'safe', 'on'=>'search'),
+			array('user_id, hometown_id, nation_id, body_type_id, education_id, school_id, job_id, monthly_income, self_summary, usually_doing, good_at, interest, love_history, other, province_id, blood, marital_status_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -68,12 +71,14 @@ class UserInfo extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'maritalStatus' => array(self::BELONGS_TO, 'MaritalStatus', 'marital_status_id'),
 			'hometown' => array(self::BELONGS_TO, 'Province', 'hometown_id'),
 			'nation' => array(self::BELONGS_TO, 'Nation', 'nation_id'),
 			'bodyType' => array(self::BELONGS_TO, 'BodyType', 'body_type_id'),
 			'education' => array(self::BELONGS_TO, 'Education', 'education_id'),
 			'school' => array(self::BELONGS_TO, 'School', 'school_id'),
 			'province' => array(self::BELONGS_TO, 'Province', 'province_id'),
+			'job' => array(self::BELONGS_TO, 'Job', 'job_id'),
 			'userPhotos' => array(self::HAS_MANY, 'UserPhoto', 'user_id'),
 		);
 	}
@@ -100,6 +105,7 @@ class UserInfo extends CActiveRecord
 			'other' => 'Other',
 			'province_id' => 'Province',
 			'blood' => 'Blood',
+			'marital_status_id' => 'Marital Status',
 		);
 	}
 
@@ -137,6 +143,7 @@ class UserInfo extends CActiveRecord
 		$criteria->compare('other',$this->other,true);
 		$criteria->compare('province_id',$this->province_id);
 		$criteria->compare('blood',$this->blood,true);
+		$criteria->compare('marital_status_id',$this->marital_status_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

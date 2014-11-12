@@ -5,7 +5,7 @@
           <div class="profile_details">
             <dl>
               <dt>婚姻状况</dt>
-              <dd id="marriage">未婚</dd>
+              <dd id="marriage"><%$user_more->maritalStatus->name%></dd>
             </dl>
             <dl>
               <dt>家乡</dt>
@@ -13,26 +13,26 @@
             </dl>
             <dl>
               <dt>民族</dt>
-              <dd id="nation">汉族</dd>
+              <dd id="nation"><%$user_more->nation->name%></dd>
             </dl>
             <dl>
               <dt>体型</dt>
-              <dd id="body_type">匀称</dd>
+              <dd id="body_type"><%$user_more->bodyType->name%></dd>
             </dl>
             <dl>
               <dt>血型</dt>
-              <dd id="blood_type">AB</dd>
+              <dd id="blood_type"><%$user_more->blood%></dd>
             </dl>
             <dl>
               <dt>学历</dt>
-              <dd id="education">本科</dd>
+              <dd id="education"><%$user_more->education->name%></dd>
             </dl>
             <dl>
               <dt>职业</dt>
-              <dd id="job">在校学生</dd>
+              <dd id="job"><%$user_more->job->name%></dd>
             </dl>
             <dl>
               <dt>月薪</dt>
-              <dd id="income">5000-10000</dd>
+              <dd id="income"><%$user_more->monthly_income%></dd>
             </dl>
           </div>
