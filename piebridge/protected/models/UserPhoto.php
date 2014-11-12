@@ -8,6 +8,7 @@
  * @property integer $user_id
  * @property string $p_des
  * @property string $create_time
+ * @property integer $type
  *
  * The followings are the available model relations:
  * @property UserInfo $user
@@ -30,13 +31,12 @@ class UserPhoto extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('p_id', 'required'),
-			array('p_id, user_id', 'numerical', 'integerOnly'=>true),
+			array('user_id, type', 'numerical', 'integerOnly'=>true),
 			array('p_des', 'length', 'max'=>45),
 			array('create_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('p_id, user_id, p_des, create_time', 'safe', 'on'=>'search'),
+			array('p_id, user_id, p_des, create_time, type', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -62,6 +62,7 @@ class UserPhoto extends CActiveRecord
 			'user_id' => 'User',
 			'p_des' => 'P Des',
 			'create_time' => 'Create Time',
+			'type' => 'Type',
 		);
 	}
 
@@ -87,6 +88,7 @@ class UserPhoto extends CActiveRecord
 		$criteria->compare('user_id',$this->user_id);
 		$criteria->compare('p_des',$this->p_des,true);
 		$criteria->compare('create_time',$this->create_time,true);
+		$criteria->compare('type',$this->type);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

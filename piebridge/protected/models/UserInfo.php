@@ -23,7 +23,6 @@
  * @property integer $marital_status_id
  *
  * The followings are the available model relations:
- * @property MaritalStatus $maritalStatus
  * @property Province $hometown
  * @property Nation $nation
  * @property BodyType $bodyType
@@ -31,6 +30,7 @@
  * @property School $school
  * @property Province $province
  * @property Job $job
+ * @property MaritalStatus $maritalStatus
  * @property UserPhoto[] $userPhotos
  */
 class UserInfo extends CActiveRecord
@@ -71,7 +71,6 @@ class UserInfo extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'maritalStatus' => array(self::BELONGS_TO, 'MaritalStatus', 'marital_status_id'),
 			'hometown' => array(self::BELONGS_TO, 'Province', 'hometown_id'),
 			'nation' => array(self::BELONGS_TO, 'Nation', 'nation_id'),
 			'bodyType' => array(self::BELONGS_TO, 'BodyType', 'body_type_id'),
@@ -79,6 +78,7 @@ class UserInfo extends CActiveRecord
 			'school' => array(self::BELONGS_TO, 'School', 'school_id'),
 			'province' => array(self::BELONGS_TO, 'Province', 'province_id'),
 			'job' => array(self::BELONGS_TO, 'Job', 'job_id'),
+			'maritalStatus' => array(self::BELONGS_TO, 'MaritalStatus', 'marital_status_id'),
 			'userPhotos' => array(self::HAS_MANY, 'UserPhoto', 'user_id'),
 		);
 	}
